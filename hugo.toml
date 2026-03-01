@@ -1,0 +1,24 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Tev writes'
+theme = "hugo-blog-awesome"
+
+siteName = "Tev writes"
+description = "A blog about software development, programming, and technology."
+
+[params.author]
+intro = "Tev writes"
+description = "Tevin Thuku's blog on software development"
+
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/Tevinthuku"
+
+[[params.socialIcons]]
+name = "Rss"
+url = "/index.xml"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
