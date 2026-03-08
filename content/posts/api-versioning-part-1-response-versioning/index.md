@@ -20,7 +20,7 @@ That's what led me to build [version-api](https://github.com/Tevinthuku/version-
 
 Your endpoint always returns the **latest** response shape. When a consumer sends a request pinned to an older API version, the library automatically downgrades the response through a chain of transformers until it matches what that version expects.
 
-Let's walk through a concrete example.
+Let's walk through a concrete example using [Actix Web](https://actix.rs/) — it's the Rust web framework I'm most familiar with. The library hasn't been published to crates.io yet, so if you'd like to follow along, you can [clone the repo](https://github.com/Tevinthuku/version-api) & have a look at the [actix web example.](https://github.com/Tevinthuku/version-api/blob/main/version-actix/examples/user-response.rs)
 
 ### 1. Define your API versions
 
@@ -192,7 +192,19 @@ HttpServer::new(move || {
 .await
 ```
 
-Now when a consumer sends X-API-Version: 1.0.0, they get { "name": "Jane Doe" }. A consumer on 2.0.0 (or with no header) gets { "first_name": "Jane", "last_name": "Doe" }. Your handler code stays the same either way.
+Now when a consumer sends X-API-Version: 1.0.0, they get
+
+```json
+{ "name": "Jane Doe" }
+```
+
+A consumer on 2.0.0 (or with no header) gets
+
+```json
+{ "first_name": "Jane", "last_name": "Doe" }
+```
+
+Your handler code stays the same either way.
 
 #### Internals
 
@@ -273,3 +285,7 @@ This experience reinforced something I think is important when building with LLM
 2. **Error handling overhaul:** The current error handling leans on Box<dyn std::error::Error> and std::io::Error as catch-all wrappers, which isn't great for debuggability or for consumers matching on specific failure cases. I plan to introduce a dedicated error type that makes it clear whether a failure came from version validation, transformation, serialization, or registration.
 
 3. **Opt-in tracing** — when a response passes through a chain of transformers, things can go wrong in ways that are hard to diagnose. Adding optional tracing support would let developers inspect the full transformation pipeline: which version was requested, which transformers ran, and what the intermediate shapes looked like. Spans would default to `debug` level to keep production logs clean, unless explicitly configured otherwise.
+
+4. **Publish to crates.io** — someday, maybe. No promises.
+
+Thanks for reading!
