@@ -41,6 +41,10 @@ enum ApiVersion {
 }
 ```
 
+#### Internals:
+
+I'm relying on macros to generate valid VersionIds from any enum that derives `ApiVersionId`, if the string literal provided does not conform to what we may consider a valid version, a compile time error will be generated. Plus, the versions must be listed in descending order. This just helps keep the list predictable.
+
 ### 2. Write your endpoint against the latest shape
 
 Your handler always returns the current / latest DTO
