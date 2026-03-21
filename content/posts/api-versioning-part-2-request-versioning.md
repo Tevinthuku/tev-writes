@@ -109,4 +109,4 @@ This service is a full roundtrip example where both request and response version
 
 The next area I will work on is error handling. I currently have several `TODO` comments across the repository to improve this part. Specifically, I want to distinguish between internal errors (for example, transformer failures) and external errors (for example, a client sending an invalid DTO for an older version).
 
-I will cover that in the next post.
+I will cover that in a future PR.
