@@ -4,7 +4,7 @@ draft = false
 title = 'Coding challenges: Notion clone — Part 1: Infrastructure experiment'
 +++
 
-I picked up [this Notion clone challenge](https://codingchallenges.fyi/challenges/challenge-notion) not because building a Notion-like product is hard for me - but because I wanted a real excuse to set up and orchestrate a Kubernetes cluster from scratch.
+I picked up [this Notion clone challenge](https://codingchallenges.fyi/challenges/challenge-notion) as an excuse to set up and orchestrate a Kubernetes cluster from scratch. As a fullstack developer, wiring together a backend, frontend, and database is familiar territory — but the infrastructure side of things is where I wanted to push myself.
 
 I've touched Kubernetes at work, but always at arm's length. This felt like the right project to go deeper: deploy a frontend, a backend, and a Postgres database, wired together properly, running on a real remote cluster.
 
