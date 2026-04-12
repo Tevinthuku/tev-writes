@@ -20,7 +20,7 @@ I've touched Kubernetes at work, but always at arm's length. This felt like the 
 #### Tools I'm using
 
 - **[Garden](https://docs.garden.io)** — Spins up production-like environments for local dev, testing, and CI. The main reason I can have a live preview environment on every PR.
-- **[Azure AKS](https://azure.microsoft.com/en-us/products/kubernetes-service)** — Managed Kubernetes on Azure. Handles the control plane so I'm not babysitting cluster nodes.
+- **[Azure AKS](https://azure.microsoft.com/en-us/products/kubernetes-service)** — Managed Kubernetes on Azure.
 
 #### What I wanted before writing a single line of product code
 
