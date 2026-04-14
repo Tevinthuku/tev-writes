@@ -6,8 +6,8 @@ title = 'Coding challenges: Notion clone — Part 2: Notion Functionality'
 
 ### Tiny update from the first infra post.
 
-I had mentioned [here](./notion-clone-infra-experiement/index.md) that test runs were not cached. I've finally solved the issue by relying on garden's [container test action instead of exec](https://docs.garden.io/reference/action-types/test/container)
-Since the image gets cached, when nothing changes, the test action runs almost instantaneously.
+1. I had mentioned [here](./notion-clone-infra-experiement/index.md) that test runs were not cached. I've finally solved the issue by relying on garden's [container test action instead of exec](https://docs.garden.io/reference/action-types/test/container)
+   Since the image gets cached, when nothing changes, the test action runs almost instantaneously.
 
 ```bash
 ℹ test.workspace-tests      → Getting status for Test workspace-tests (type container) at version v-8f31e82bdd...
@@ -23,3 +23,5 @@ Since the image gets cached, when nothing changes, the test action runs almost i
 
 Done! ✔️
 ```
+
+2. I've simplified my db migration from a Job to a simple Garden run command, which internally spins up a pod based off a container image and executes the command I specify. In my case, its simply running the db-migration binary.
