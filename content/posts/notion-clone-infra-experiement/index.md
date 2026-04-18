@@ -40,6 +40,8 @@ Right now the test job recompiles everything from scratch on each push. I'd expe
 
 Garden's [Remote Container Builder](https://docs.garden.io/features/remote-container-builder) might address both of these, but I'd rather find a cheaper solution that doesn't add another paid service to a hobby project.
 
+Edit: I actually found a solution for this, more details can be found [here](../notion-clone-functionality.md)
+
 ---
 
 #### Next steps
