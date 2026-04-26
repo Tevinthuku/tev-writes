@@ -69,10 +69,10 @@ Pros:
 
 - Read queries are simple and fast.
 - No recursive CTEs are needed to fetch ancestry/descendants.
-  Cons:
 
-- It is more complex than maintaining only a parent_id.
-- Changing parents requires rebuilding parts of the closure tree.
+Cons:
+
+- Its a bit more complex during inserts / updates because we in these 2 operations we are building / updating a tree.
   That said, the complexity is manageable in practice. My implementation is [here](https://github.com/Tevinthuku/notion/blob/main/backend/http-server/src/pages/page_closures.rs), and the related tests are [here](https://github.com/Tevinthuku/notion/blob/main/backend/http-server/src/pages/mod.rs#L378).
 
 The main idea is to delete the old ancestor references on the page and all its descendants and then to create a cartesian product of the new ancestors with all existing descendants. One can do it with a cross-join in sql, however, I opted to do it in the application code using itertool's cartesian_product [method](https://docs.rs/itertools/latest/itertools/trait.Itertools.html#method.cartesian_product).
